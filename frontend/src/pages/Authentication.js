@@ -42,7 +42,9 @@ export const action = async ({request, params}) => {
         });
     }
 
-    // Later: Manage token
+    // Manage token
+    const { token } = await response.json();
+    localStorage.setItem('EVENTS_APP_TOKEN', token);
 
     return redirect('/');
 }
