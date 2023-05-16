@@ -1,3 +1,5 @@
+import {redirect} from "react-router-dom";
+
 const TOKEN_KEY = 'EVENTS_APP_TOKEN';
 
 export const getAuthToken = () => {
@@ -11,4 +13,14 @@ export const removeAuthToken = () => {
 
 export const tokenLoader = () => {
     return getAuthToken();
+}
+
+export const checkAuthLoader = () => {
+    const token = getAuthToken();
+
+    if (!token) {
+        return redirect('/auth');
+    }
+
+    return null;
 }
