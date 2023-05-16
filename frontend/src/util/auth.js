@@ -8,3 +8,7 @@ export const getAuthToken = () => {
 export const removeAuthToken = () => {
     localStorage.removeItem(TOKEN_KEY)
 }
+
+export const tokenLoader = () => {
+    return getAuthToken();
+}
