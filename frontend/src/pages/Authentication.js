@@ -45,6 +45,9 @@ export const action = async ({request, params}) => {
     // Manage token
     const { token } = await response.json();
     localStorage.setItem('EVENTS_APP_TOKEN', token);
+    const date = new Date();
+    date.setHours(date.getHours() + 1);
+    localStorage.setItem('EVENTS_APP_EXPIRATION', date.toISOString());
 
     return redirect('/');
 }

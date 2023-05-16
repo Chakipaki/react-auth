@@ -1,7 +1,8 @@
-import { removeAuthToken } from "../util/auth";
+import { removeLSToken } from "../util/auth";
 import { redirect } from "react-router-dom";
 
 export const action = async () => {
-    removeAuthToken()
+    removeLSToken('EVENTS_APP_TOKEN');
+    removeLSToken('EVENTS_APP_EXPIRATION');
     return redirect('/');
 }
